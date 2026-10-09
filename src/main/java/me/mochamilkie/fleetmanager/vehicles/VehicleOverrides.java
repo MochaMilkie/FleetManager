@@ -5,8 +5,7 @@ import me.mochamilkie.fleetmanager.VIN;
 import java.time.Year;
 import java.util.Date;
 
-public record VehicleOverrides (VIN vin,
-                                Year year,
+public record VehicleOverrides (Year year,
                                 String make,
                                 String model,
                                 String unitNumber,
