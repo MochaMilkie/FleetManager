@@ -20,7 +20,7 @@ public class VINTests {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"1FTRW12W06KD2993I", "1FTRW12W06KD29930", "1FTRW12W06KD2993Q"})
+    @ValueSource(strings = {"1FTRW12W06KD2993I", "1FTRW12WO6KD29930", "1FTRW12W06KD2993Q"})
     public void invalidCharacterInVin(String bad){
         Assertions.assertThrows(InvalidVinException.class, () -> new VIN(bad));
     }
