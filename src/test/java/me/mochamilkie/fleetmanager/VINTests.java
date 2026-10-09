@@ -33,7 +33,7 @@ public class VINTests {
     @Test
     public void vinContainsLowerCase(){
         Assertions.assertDoesNotThrow(() -> new VIN("1ftrw12w06kd29937"));
-        VIN goodVin = new VIN("1FTRW12W06KD2993");
+        VIN goodVin = new VIN("1FTRW12W06KD29937");
         VIN badVin = new VIN("1ftrw12w06kd29937");
         Assertions.assertEquals(goodVin, badVin);
     }
