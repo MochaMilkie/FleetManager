@@ -1,6 +1,7 @@
 package me.mochamilkie.fleetmanager;
 
 import me.mochamilkie.fleetmanager.exceptions.InvalidVinException;
+import me.mochamilkie.fleetmanager.exceptions.VinIsNullException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -27,7 +28,7 @@ public class VINTests {
 
     @Test
     public void nullVin(){
-        Assertions.assertThrows(InvalidVinException.class, () -> new VIN(null));
+        Assertions.assertThrows(VinIsNullException.class, () -> new VIN(null));
     }
 
     @Test
