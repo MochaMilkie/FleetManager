@@ -30,6 +30,14 @@ public class VINTests {
         Assertions.assertThrows(InvalidVinException.class, () -> new VIN(null));
     }
 
-        //I would like to add more exceptions to allow more verbose responses for why the vin was rejected.
+    @Test
+    public void vinContainsLowerCase(){
+        Assertions.assertDoesNotThrow(() -> new VIN("1ftrw12w06kd29937"));
+        VIN goodVin = new VIN("1FTRW12W06KD2993");
+        VIN badVin = new VIN("1ftrw12w06kd29937");
+        Assertions.assertEquals(goodVin, badVin);
+    }
+
+        //I would like to add more exceptions to allow more verbose responses for why the vin was rejected. We could also use the exception message for this
     //Unsure if that will be necessary
 }
