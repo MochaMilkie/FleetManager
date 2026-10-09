@@ -11,6 +11,10 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleInvalidVinException(InvalidVinException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(ErrorCodes.INVALID_VIN, exception.getMessage()));
     }
+    @ExceptionHandler(VinIsNullException.class)
+    public ResponseEntity<ErrorResponse> handleVinIsNullException(VinIsNullException exception) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ErrorResponse(ErrorCodes.VIN_IS_NULL, exception.getMessage()));
+    }
 
 
 }
