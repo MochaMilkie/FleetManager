@@ -25,8 +25,8 @@ public record CustomVehicle(VIN vin,
                 o.unitNumber() != null ? o.unitNumber() : unitNumber,
                 o.lastServiced() != null ? o.lastServiced() : lastServiced,
                 o.nextService() != null ? o.nextService() : nextService,
-                o.lastOilChange() != lastOilChange ? o.lastOilChange() : lastOilChange,
-                o.nextOilChange() != nextOilChange ? o.nextOilChange() : nextOilChange
+                o.lastOilChange() != -1 ? o.lastOilChange() : lastOilChange,
+                o.nextOilChange() != -1 ? o.nextOilChange() : nextOilChange
         );
     }
 }
