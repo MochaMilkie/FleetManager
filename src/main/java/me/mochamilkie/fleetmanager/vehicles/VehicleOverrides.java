@@ -1,7 +1,5 @@
 package me.mochamilkie.fleetmanager.vehicles;
 
-import me.mochamilkie.fleetmanager.VIN;
-
 import java.time.Year;
 import java.util.Date;
 
