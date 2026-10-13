@@ -8,8 +8,10 @@ public record CustomVehicle(VIN vin,
                             String make,
                             String model,
                             String unitNumber,
+                            boolean isServiceTrackingActive,
                             Date lastServiced,
                             Date nextService,
+                            boolean isOilTrackingActive,
                             int lastOilChange,
                             int nextOilChange) {
 
@@ -21,10 +23,12 @@ public record CustomVehicle(VIN vin,
                 o.make() != null ? o.make() : make,
                 o.model() != null ? o.model() : model,
                 o.unitNumber() != null ? o.unitNumber() : unitNumber,
-                o.lastServiced() != null ? o.lastServiced() : lastServiced,
-                o.nextService() != null ? o.nextService() : nextService,
-                o.lastOilChange() != -1 ? o.lastOilChange() : lastOilChange,
-                o.nextOilChange() != -1 ? o.nextOilChange() : nextOilChange
+                o.isServiceTrackingActive(),
+                o.lastServiced() != lastServiced ? o.lastServiced() : lastServiced,
+                o.nextService() != nextService ? o.nextService() : nextService,
+                o.isOilTrackingActive(),
+                o.lastOilChange() != lastOilChange ? o.lastOilChange() : lastOilChange,
+                o.nextOilChange() != nextOilChange  ? o.nextOilChange() : nextOilChange
         );
     }
 }

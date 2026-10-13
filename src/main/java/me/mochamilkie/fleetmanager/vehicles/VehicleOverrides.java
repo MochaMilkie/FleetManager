@@ -7,8 +7,10 @@ public record VehicleOverrides (Year year,
                                 String make,
                                 String model,
                                 String unitNumber,
+                                boolean isServiceTrackingActive,
                                 Date lastServiced,
                                 Date nextService,
+                                boolean isOilTrackingActive,
                                 int lastOilChange,
                                 int nextOilChange){
 }
