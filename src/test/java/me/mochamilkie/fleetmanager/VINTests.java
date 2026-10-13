@@ -1,7 +1,9 @@
 package me.mochamilkie.fleetmanager;
 
 import me.mochamilkie.fleetmanager.exceptions.InvalidVinException;
+import me.mochamilkie.fleetmanager.exceptions.InvalidVinLengthException;
 import me.mochamilkie.fleetmanager.exceptions.VinIsNullException;
+import me.mochamilkie.fleetmanager.vehicles.VIN;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -17,8 +19,7 @@ public class VINTests {
     @ParameterizedTest
     @ValueSource(strings = {"1FTRW12W06KD2993","1FTRW12W06KD299377"})
     public void invalidVinLength(String bad){
-        Assertions.assertThrows(InvalidVinException.class, () -> new VIN(bad));
-    }
+        Assertions.assertThrows(InvalidVinLengthException.class, () -> new VIN(bad));    }
 
     @ParameterizedTest
     @ValueSource(strings = {"1FTRW12W06KD2993I", "1FTRW12WO6KD29930", "1FTRW12W06KD2993Q"})
