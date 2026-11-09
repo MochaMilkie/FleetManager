@@ -7,7 +7,6 @@ public class StorageService {
     static StorageService storageService;
     public StorageService() {
         storageService = this;
-        
     }
 
 
