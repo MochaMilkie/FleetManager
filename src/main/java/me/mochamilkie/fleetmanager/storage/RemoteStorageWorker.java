@@ -1,5 +1,8 @@
 package me.mochamilkie.fleetmanager.storage;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class RemoteStorageWorker extends StorageService implements DataRequest{
     @Override
     public DataPacket requestData(DataRequest request) {
