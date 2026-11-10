@@ -2,12 +2,6 @@ package me.mochamilkie.fleetmanager.storage;
 
 import me.mochamilkie.fleetmanager.vehicles.VIN;
 
-import java.util.UUID;
+import java.time.Year;
 
-public record DataPacket() {
-    static String unitNumber;
-    static String year;
-    static String make;
-    static String model;
-    static VIN vin;
-}
+public record DataPacket(String unitNumber, Year year, String make, String model, VIN vin){}
