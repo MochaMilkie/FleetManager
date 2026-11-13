@@ -3,7 +3,7 @@ package me.mochamilkie.fleetmanager.storage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LocalStorageWorker extends StorageService implements DataRequest{
+public class LocalStorageWorker implements DataRequest{
     @Override
     public DataPacket requestData(DataRequest request) {
         return null;

@@ -1,19 +1,47 @@
 package me.mochamilkie.fleetmanager.storage;
 
+import me.mochamilkie.fleetmanager.config.Configuration;
+import me.mochamilkie.fleetmanager.config.ConfigurationService;
 import org.springframework.stereotype.Service;
+
+import javax.naming.ConfigurationException;
 
 @Service
 public class StorageService {
     static StorageService storageService;
-    public StorageService() {
+    private final String storageType;
+    private final LocalStorageWorker localStorageWorker;
+    private final RemoteStorageWorker remoteStorageWorker;
+
+    public StorageService(LocalStorageWorker localStorageWorker, RemoteStorageWorker remoteStorageWorker) throws ConfigurationException {
         storageService = this;
+        this.storageType = ConfigurationService.loadStorageType();
+        this.localStorageWorker = localStorageWorker;
+        this.remoteStorageWorker =  remoteStorageWorker;
     }
 
-    public void storeData(DataPacket packet) {
-        //determine what method to use before attempting to store or load data
-        //then send that data to the correct worker
+    public void storeData(DataPacket packet) throws ConfigurationException {
+        if (storageType.equalsIgnoreCase("h2")) {
+            localStorageWorker.saveData(packet);
+            return;
+        }
+        if (storageType.equalsIgnoreCase("sql")) {
+            remoteStorageWorker.saveData(packet);
+            return;
+        }
+        throw new ConfigurationException("There was a problem with the configuration");
     }
-    public void getData(DataRequest dataRequest) {
+    public void getData(DataRequest dataRequest) throws ConfigurationException {
+        if(storageType.equalsIgnoreCase("h2")){
+            localStorageWorker.requestData(dataRequest);
+            return;
+        }
+        if(storageType.equalsIgnoreCase("sql")){
+            remoteStorageWorker.requestData(dataRequest);
+            return;
+        }
+        throw new ConfigurationException("There was a problem with the configuration");
+
         //same thing here
     }
 
