@@ -15,7 +15,7 @@ public class ConfigurationService {
 
     private final FileReader fileReader;
     private final YamlDeserializer deserializer;
-    private final Configuration config;
+    private static Configuration config;
 
     public ConfigurationService() throws IOException {
         this.fileReader = new FileReader();
@@ -30,8 +30,8 @@ public class ConfigurationService {
 
         return new Configuration(values);
     }
-    public void loadStorageType() throws ConfigurationException {
-        config.getStorageMethod();
+    public static String loadStorageType() throws ConfigurationException {
+        return config.getStorageMethod();
         //register storage type
     }
 

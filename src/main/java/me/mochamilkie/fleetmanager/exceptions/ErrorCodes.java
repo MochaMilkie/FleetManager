@@ -5,5 +5,6 @@ public enum ErrorCodes {
     VIN_IS_NULL,
     INVALID_VIN_LENGTH,
     INVALID_RESPONSE,
+    MALFORMED_DATA_PACKET
 
 }
